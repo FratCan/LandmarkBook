@@ -25,7 +25,10 @@ public class DetailsActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         //casting diyorum bu yönteme.Bir şeyi başka bir şeye dönüştürme
-        LandMark selectedLandmark=(LandMark) intent.getSerializableExtra("kayıt");
+        //LandMark selectedLandmark=(LandMark) intent.getSerializableExtra("kayıt");
+        Singleton singleton=Singleton.getInstance();
+        LandMark selectedLandmark=singleton.getSentLandmark();
+
         binding.nameText.setText(selectedLandmark.name);
         binding.countryText.setText(selectedLandmark.country);
         binding.imageView.setImageResource(selectedLandmark.image);

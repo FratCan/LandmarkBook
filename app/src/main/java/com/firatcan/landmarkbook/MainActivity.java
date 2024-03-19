@@ -1,6 +1,7 @@
 package com.firatcan.landmarkbook;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         list.add(londonbridge);
         list.add(colleseum);
 
+        binding.rcycleView.setLayoutManager(new LinearLayoutManager(this));
+        LandmarkAdapter landmarkAdapter=new LandmarkAdapter(list);
+        binding.rcycleView.setAdapter(landmarkAdapter); //51.satırla aynı işi yapıyor.
+        /*
         // BU VERİMSİZ BİR YÖNTEM
         ArrayAdapter arrayAdapter=new ArrayAdapter(this, android.R.layout.simple_list_item_1,
                 list.stream().map(landMark ->landMark.name).collect(Collectors.toList()));
@@ -57,6 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+*/
     }
 }
